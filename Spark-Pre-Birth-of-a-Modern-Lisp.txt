@@ -134,6 +134,28 @@ Spark aims to be popular and be actively used for real-world tasks
 Spark will have nested namespaces
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Spark will have a similar namespace system to Perl 5, with nested namespaces,
+and the ability to selectively import symbols from namespaces at run-time.
+Similarly to http://search.cpan.org/dist/Sub-Exporter/ and as opposed to
+C++ where namespaces are all-or-nothing, and so mostly unusable.
+
+As opposed to Java one would be able to import several symbols from a 
+namespace at once and grouped by tags. +Sub-Exporter+ gives much more than
+that for Perl 5, but I don't recall all the details from the slides I saw 
+about it. +:-)+ .
+
+Like Perl 5 one will be able to import symbols at run-time.
+
+As opposed to Perl 5 classes won't be automatically associated with
+namespaces, and a namspace may contain one or more classes (or none).
+Like CPAN and unlike Java (+org.apache.jakarta...+), we will not enforce 
+namespace purity, but hopefully there will be a better mechanism than the
+current CPAN and PAUSE (Perl Authors Upload Server) to be able to fork,
+spin-off, or branch CSAN distributions or choose between competing
+alternatives. http://cpan6.org/[CPAN6] (orthogonal to Perl 6) is worth
+a look for some ideas, as is http://www.cpan.org/misc/ZCAN.html["The Zen
+of Comprehensive Archive Networks"]
+
 Spark will be more succinct than most Lisps, but not overly terse
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

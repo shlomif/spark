@@ -183,7 +183,31 @@ Lisp's +format+ to be hard to understand and much less flexible than
 Template Toolkit so I'm going to drop it. 
 
 Like in Perl 5 the +^VARNAME+ variables are reserved and 
-are usually in all-capitals. Unlike Perl 5, we are not a Lisp-2 and we use 
+are usually in all-capitals. Unlike Perl 5 (or Common Lisp), we are not a 
+Lisp-2 and we use the same symbol namespace for everything (like Scheme). So
+we can put assign a lambda 
+(could be  +(fun ... )+ , +(sub ... )+ , +(lambda ...)+ or 
++(function ... )+ - all precise synonyms) to a variable and call it with a
+value:
+
+---------------------
+(my square)
+(:= square (fun (x) (* x x))) ; Or (<- square) but I'm hazy about (= square)
+(say (square 5)) ; Prints 25 followed by a newline.
+---------------------
+
+Like in Perl 5, however, a symbol table has an arbitrary amount of slots which
+we can put values. So we can say:
+
+---------------------
+(say :to (fh STDERR) "Warning, Will Robinson.")
+---------------------
+
+Which will print to STDERR.
+
+In the case of the +:to+ named parameter to +(say)+ (or to +(print)+ or
+to +(printf)+ or whatever we have or define) we don't need the explicit
++(fh ...)+ (= file handle) call but it won't hurt.
 
 Note about command line magic
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -257,6 +281,41 @@ Spark will be written in plaintext
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 TODO : fill in.
+
+Regexps and other important elements have dedicated syntax
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+But don't worry - it's in the "re" module and it uses read-macros/ char-macros
+/ text macros. With the help of such macros one can even create a parser 
+for Ruby-style syntax (or Perl's - +;-)+), but it'll be actively 
+discouraged.
+
+So for example:
+
+---------------------
+$ spark -pe '(~ ^LINE (re.s {ba([zro])(\s+)mozart} ma$1$2bozart))'
+---------------------
+
+And it will replace the first +baz[whitespace]mozart+ with 
++maz[whitespace]bozart+ etc. The +~+ operator is similar to Perl 5's
++=~+ or perl-5.10.0's or Perl 6's +~~+ or in that it does a smart matching
+of a datum (which could be a list) to an abstract operation. 
+
+We can also use other delimiters instead of +{...}+ in the +(re.s...)+
+read macro:
+
+---------------------
+$ spark -pe '(~ ^LINE (re.s /ba([zro])(\s+)mozart/ ma$1$2bozart))'
+---------------------
+
+C/Perl/etc. conventions
+~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Spork will be case-sensitive
+
+2. Unicode (UTF-8) aware-and-safe
+
+3. With C-style escapes - backslash does the right thing.
 
 Spark will not encourage a proliferation of implementations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

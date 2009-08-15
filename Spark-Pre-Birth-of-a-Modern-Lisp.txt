@@ -1,0 +1,18 @@
+Spark - Pre-Birth of a Modern Lisp
+==================================
+
+Introduction
+------------
+
+Spark is a Modern dialect of Lisp currently being planned. This document is
+not a formal functional (much less technical) specification for it, but rather
+a briandump of some of the conclusions I (= Shlomi Fish) have reached
+about the fundamentals of its behaviour. Nevertheless, some preliminary
+(and still subject to change) specification of it will be given and some
+code examples will brought.
+
+Besides contemporary Lisp dialects such as Common Lisp, Scheme and Arc, Spark
+draws a lot of inspiration from other modern languages, paradigms, and
+technologies including Perl 5, Perl 6, Python, Ruby, Java and Haskell.
+
+

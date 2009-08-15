@@ -412,10 +412,83 @@ for-loop instead of the obscure +(do...)++ and a while loop, and a
 Perl 5/Perl 6-style foreach loop, and maybe other loops too. And you can
 always use recursion.
 
+However we're not going down the Arc route of assigning extremely short,
+and hard to pronounce and grep for identifiers. +(fn)+ How do you pronounce
+it? fnn.... There's no such sound in Hebrew, so it's verboten by your 
+Hebrew-speaking overlords. We like +(fun...)+ because it puts the fun back
+in function ("Functional!! Parallelism!!!!" - oh wait! Wrong langauge.), and we 
+like +(sub ...)+ becaues it puts the "sub" back in subroutine. And all Hebrew
+speakers will rejoice because they can pronounce +"cat"+ exactly like +"cut"+ 
+and Perl like Pérl and Lisp like Leesp, and they can pronounce TeX and
+LaTeX with a honest-to-god http://en.wikipedia.org/wiki/Kaph[khaph] (or a 
+http://en.wikipedia.org/wiki/Heth[Heth] if they put their mind to to it.),
+and the God of the Israelite Programmers saw there were only 5 and a half 
+vowels and he was pleased.
+
+Seriously now, I don't like (fn) because it's hard to pronounce, doesn't sound
+right when you read it to your mind's ear, and is abnoxious. While being
+succinct is a noble goal, picking psychologically-sound and intuitive 
+conventions is also important. I recall searching the Arc tutorial for
+a +(not)+ only to found it was spelled +(no)+:
+
+----------------
+(if (no soup) (print "soup is false"))
+----------------
+
+"If no soup". Oh no, no! No soup for you. *For one year!!!* We're going have
+(not) like everybody else, and also a "!" alias .
+
+-------------------
+(if (not soup) (print "soup is false"))
+-------------------
+
+-------------------
+(if (! soup) (print "soup is false"))
+-------------------
+
+So we're going to borrow stuff from Arc, but only when it makes sense. Spark
+should have an up-to-date documentation manual right from the very start,
+which will be kept as up-to-date as possible, and naturally will have automated
+tests, which would serve as automatically verifiable examples. Arc really
+had none, and often you needed to read the implementation code, or one of 
+the example web applications.
+
 Spark will be written in plaintext
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TODO : fill in.
+What do I mean? +sbcl+ forces to write a long command line just to run a
+program from the command line and exit. Arc was not better and could not execute
+a program directly. I added this functionality to the Arc git repository myself.
+
+No, the REPL won't be gone in spark, and good old +(load)+ will still be 
+there. But you can also do:
+
+-------------------
+$ cat hello.spark
+(say "Hello World!")
+$ spark hello.spark
+Hello World!
+$
+-------------------
+
+Or put /usr/bin/env spark or whatever in your sha-bang and it will work.
+
+A spark program will do its thing, execute to the finish and execute.
+
+We will still have a REPL for Emacs SLIME lovers or for people using IDEs
+such as Eclipse. Even Vim/gvim may get a REPL if it gets something like an 
+embedded shell like Emacs has, and which while of little immediate use to me,
+seems like a killer and an absolutely essential feature. Hopefully Bram
+(the Vim guy) will read it and apply the patch for it, which has been
+maintained separately in quite a while.
+
+Spark programs can be abstract syntax trees, a network of objects, some
+compiled bytecode or flying unicorn ponies who drop candy. Nevertheless,
+they are still read from text. If you want to change the state of REPL until
+you forget what it has now or it changes unbeknowest to you
+("Parallelism!!!!") it's an option. But you can still write your tests,
+run, debug, change, run debug, etc. Hopefully with automated tests for 
+extra bonus points in Software Management sainthood.
 
 Regexps and other important elements have dedicated syntax
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

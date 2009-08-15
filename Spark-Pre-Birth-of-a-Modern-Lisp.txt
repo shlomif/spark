@@ -245,7 +245,87 @@ a succesful plain +-e+ invocation).
 Spark aims to be popular and be actively used for real-world tasks
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TOOD : fill in.
+While other general purpose Lisps such as Common Lisp, Scheme, Arc or
+Clojure have been influential and have some followers and users, none of them
+are actively used with the same popularity as Perl, Python, Ruby or PHP are.
+Spark aims to be a popular lisp dialect which will be actively used for
+real-world tasks, not just toy or experimentation code. 
+
+Eventually, it is our hope that some people will get paid to maintain Spark 
+code. Some of them against their best preferences, like some people now are
+maintaining Perl 5, PHP or even Python code while prefering a different
+language. (Simply because it puts bread on their table, and they cannot get
+paid to write something else.)
+
+Python? Yes! Google for example has been hiring several Perl 5 or even Perl 5
+and Perl 6 programmers and instructing them to program mostly in Python. I've
+known two or three of them myself. Many of them tolerate or even like Python
+enough to program in it, but many of them still prefer Perl and consider
+themselves as Perlers at heart. But Google gives very good conditions and
+many Perl programmers (despite a huge demand for them) are treated badly
+or have advanced to better paying positions. And naturally a lot of the
+"younger generation" (most of them) bought the hype that you shouldn't need 
+to learn Perl if you already know PHP, or Python or Java or whatever.
+
+In any case, Spark aims to become roughly as popular as any of Perl/PHP/etc.
+It is not guaranteed that we succeed , but we still would like to try.
+What can we do to increase our chances?
+
+Paul Graham has written about http://www.paulgraham.com/popular.html[what 
+makes a language popular]. Arguably, he failed to make Arc as popular as
+he wanted, even after it was released (and may have violated some of his
+own guidelines), but the guidelines in the article are still sound. 
+(ad-hominem anecdote put aside).
+
+One can spend a lot of time expanding on Graham's points and adding more stuff
+(including possibly good timing and luck and possibly a lot of financial 
+backing can help, which most open-source enthusiasts don't have).
+
+However, it is important to note that this is our ultimate goal. Some languages
+didn't have a lot of financial backing before they got popular - Perl, Python,
+PHP and Ruby are examples of it. Can we do the same?
+
+None of the P-languages are perfect. Someone on #scheme gave me a moderate
+list of must have items out of which Perl, Python, PHP and Ruby each violate
+at least one and Scheme and Common Lisp none. I can quote him here as the
+channel is publicly logged. 
+
+I'm not going to try to violate any of them (or any of the many common sense
+"never-do-it"'s that PHP alone has violated, to say nothing of the rest) on 
+purpose in hope it will save me from the evil eye of having a decent language.
+But I don't think languages succeed because they are bad but because they offer
+at least one awesome advantage. For example Perl 1 offered the ability to write
+pseudo-shell scripts in a much more robsut and powerful way than awk, sed, sh
+and csh and a much easier way than ANSI C did. (although still very primitive
+by the standards of Perl 5). By the time Perl 4 was abandoned in favour of
+Perl 5 , Perl 4 was already the de-facto standard for clueful
+sys admins who valued their sanity. And I recall when Perl 5 was the only
+real solution for writing CGI scripts that you could use because I was hired
+to work as a web developer at that time.
+
+PHP was similar enough to Perl 5 to fool people into believing it was adequate
+(while messing up the internal behaviour and core language royally) and offered
+more ubiquity as far as setting up on web-hosts was concerned (which Perl 5
+is still trying to catch up). You can now download very powerful and gratis
+content management systems in PHP (and other gratis web applications) and
+run them out of the box on your cheap hosting and call yourself a webmaster,
+which would be hard with any other UNIX-based solution. PHP as a language
+has many issues, but they got some parts of the implementation needs right,
+and this is what made it popular.
+
+We need to find some good reasons for people to become hooked on Spark. 
+Spark probably won't be perfect because I am not perfect and don't know all
+their is to know about language design. However, neither are
+Scheme and Common Lisp. But even if Spark doesn't have so many quirks like 
+PHP or Perl (or even Python) it should be an attractive platform for people
+to experiment with, write scripts in daily, write toy programs and serious
+applications, and then one day we may get a killer app like Ruby's Ruby on
+Rails. 
+
+(Hopefully, we won't get the added RoR hype, which I admit is based on
+viral marketing and community efforts, but was hype nonetheless. Perl and
+PHP were never strongly hyped, and they seem to have been doing fine without
+it.)
 
 Spark will have nested namespaces
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -275,7 +355,62 @@ of Comprehensive Archive Networks"]
 Spark will be more succinct than most Lisps, but not overly terse
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TODO : fill in.
+One thing notable about Scheme and Common Lisp is that many identifiers
+and keywords there are excessively long. ++(string->integer)++ ,
+++(lambda)++ , ++(concatenate)++ , etc. Yes, you can easily assign aliases
+to them, but it:
+
+1. Takes time to write it and more time to maintain it.
+
+2. Will require you to carry and update a meta-syntactic package in all your
+code.
+
+3. Would make your code harder to understand to the unfamiliar.
+
+So Spark will provide short identifiers for most common operations (either
+macros or functions) by default. There won't be too many long aliases because 
+they will increase the core and require more time to learn and become familiar
+with for the uninitiated, but some of them will be considered.
+
+For example, a variation on my favourite Scheme statement is:
+
+---------------------
+(vector-set! myarray idx (+ (vector-ref myarray idx) 2))
+---------------------
+
+Which in Perl is:
+
+---------------------
+$myarray[$idx] += 2;
+---------------------
+
+And in Spark would be:
+
+---------------------
+(+= (: myarray [ idx ]) 2)
+---------------------
+
+Which isn't much worse than Perl. We're not trying to beat Perl 5, Perl 6
+or much less J in code Golfing in every case - this isn't a peeing contest.
+We're just trying to make easy tasks easy.
+
+Furthermore, while +++=++ ++-=++ ++*=++ and friends will be defined there
+will be a macro (that will be used defined by the prelude and used there)
+to define your own +${op}=+ operators. Like +(list=)+ or +(myfunc=)+.
+
+And as you see we will try very hard that every sane expression can become an
+lvalue.
+
+And in case, you're worried there will be a "\+\+" and "--" operators too,
+with post-increment/post-decrement and pre-incremenet/pre-decrement variations.
+
+Finally, by inspiration from Arc, we decided to do something about excessive 
+parens. So we will have a +(with (k1 v1 k2 v2 k3 v3) .... )+ scoping instead
+of the unweildy Scheme +(let*)+ and +(letrec)+ (both will be easily replacebe
+by +(with...)++ with some macro or VM trickery.). And we'll have a C-style
+for-loop instead of the obscure +(do...)++ and a while loop, and a 
+Perl 5/Perl 6-style foreach loop, and maybe other loops too. And you can
+always use recursion.
 
 Spark will be written in plaintext
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -386,7 +521,7 @@ __________________________________________________________________________
 
 (I should note that, like many other FOSS hackers, I normally prefer ANSI C
 \+1 over C++ , and am not a big \+1 fan of C++ for most stuff. However, Stroustrup
-is a wickedly smart guy, and despite whatever faults his language may has,
+is a wickedly smart guy, and despite whatever faults his language may have,
 he speaks straight, and what he says here seems to make a lot of sense).
 
 Spark hopefully won't be as \+1 complex as C++ is today from the beginning,

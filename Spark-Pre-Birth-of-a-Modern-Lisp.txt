@@ -128,9 +128,95 @@ Spark will be capable of being used for Scripting
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 While Spark should not be called a scripting language, just as the name is
-a misnomer ,
+a misnomer for Perl 5 or for PHP, it should in fact be capable of writing
+scripts, including command line scripts at the prompt or the REPL 
+(Read-Eval-Print-Loop). Here are some examples for command line scripts. Most
+of these are taken from the descriptions in http://www.catonmat.net/blog/awk-one-liners-explained-part-one/[Peteris Krumins' "Famous Awk
+One-Liners Explained"] series (which is now in the process of being
+augmented with "Famous Perl One-Liners Explained"). I'm not going to study
+the Awk implementations due to lack of knowledge in Awk and lack of will
+to learn it as I already know Perl 5 - its far superior superset, but I'll
+implement something similar in Spark (Hopefully, Peteris will feature a 
+"Famous Spark One Liners Explained" feature in his blog someday
+too).
 
-TODO : fill in.
+Line Count:
+^^^^^^^^^^^
+
+------------------------------------------------
+$ spark -e '(-> (fh ARGV) foreach (++ i)) (say i)' [Files]
+------------------------------------------------
+
+Line Count Reloaded:
+^^^^^^^^^^^^^^^^^^^^
+
+------------------------------------------------
+$ spark -e '(say (: len getlines (-> (fh ARGV))' [Files]
+------------------------------------------------
+
++(: ... )+ serves the same purpose as Haskell's +$+ - to chain function
+calls without too many nested parameters.
+
+Double-space a file:
+^^^^^^^^^^^^^^^^^^^^
+
+------------------------------------------------
+$ spark -pe '(say)'
+------------------------------------------------
+
+(Think Perl)
+
+Number lines in each file:
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+------------------------------------------------
+$ spark -ne '(say "${^LINENUM} ${^LINE}")'
+------------------------------------------------
+
+Here we can see the string interpolation of variables in action. 
++${....}+ intepolates a single variable, while +$()+ is an
+S-expression. Aside from that spark will also have sprintf, 
+http://search.cpan.org/dist/Text-Sprintf-Named/[sprintf with named 
+conversions similar to Python] and something as similar as possible to
+Perl's Template Toolkit (while still being Sparky). I find Common
+Lisp's +format+ to be hard to understand and much less flexible than
+Template Toolkit so I'm going to drop it. 
+
+Like in Perl 5 the +^VARNAME+ variables are reserved and 
+are usually in all-capitals. Unlike Perl 5, we are not a Lisp-2 and we use 
+
+Note about command line magic
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Out of convenience the +-e+ and the rest of the +-p+, +-n+ , etc. flags
+will involve some magic manipulation of the S-expression inside -e or inside
+the script. It also loads some convenient modules. However, sometimes we may 
+wish to convert a command line script to a full application. That's what 
+the +--dump-code=code.spark+ flag is for. It dumps the code of the program to 
+a file containing code that can be run with just +spark code.spark+.
+
+For example:
+
+---------------------
+$ spark --dump-code=say.spark -pe '(say)'
+$ cat say.spark
+(no strict) ; you should probably remove that.
+(use re)
+(use cmd-loop)
+(cmd-loop.set-implicit-print 1)
+(say)
+$ 
+---------------------
+
+Like all examples here, this is just for the sake of the illustration. Until
+version 1.0.0 comes out, everything can change. But the concepts will remain
+the same.
+
+We encourage Perl, Ruby and other dynamic languages with rich command line
+interfaces, to steal the +--dump-code+ idea. Maybe one day someone will become
+a multi-millionaire from selling a 300K Lines program that evolved from a
+simple +spark/perl/ruby --dump-code=code.... -e '....'+ invocation (after
+a succesful plain +-e+ invocation).
 
 Spark aims to be popular and be actively used for real-world tasks
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

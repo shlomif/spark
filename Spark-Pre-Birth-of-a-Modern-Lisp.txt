@@ -15,4 +15,137 @@ Besides contemporary Lisp dialects such as Common Lisp, Scheme and Arc, Spark
 draws a lot of inspiration from other modern languages, paradigms, and
 technologies including Perl 5, Perl 6, Python, Ruby, Java and Haskell.
 
+Some Spark Essentials
+---------------------
 
+Spark is not another implementation of Scheme (or Common Lisp)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are far too many implementations of Scheme out there, and probably too
+many of Common Lisp. However, that is besides the point that we did not come
+to praise the existing dialects of Lisp, by implement them again.
+
+Spark will be a completely different dialect of Lisp. It won't be compatible
+with either Scheme (or any of its implementations), Common Lisp or even with
+Arc. It will still be Lisp, though, as we hope you will see.
+
+Spark does not aim to compete with C and friends
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Spark does not aim to fill the same ecological niche as ANSI C, C++
+Objective-C, etc. much less Assembly. ANSI C and friends have been the
+de-facto standard for writing applications when some or all of certain
+constraints have been met:
+
+http://www.shlomifish.org/philosophy/computers/when-c-is-best/
+
+While their use have lately been diminishing somewhat due to the increasing
+attractiveness of the Java or .NET frameworks or the various dynamic
+languages (Perl/Python/PHP/Ruby/etc.) they are nevertheless still very much 
+in vogue and even the backends for the more high-level virtual machines
+are written in C and C++ .
+
+There have been some efforts to compete with C and C++ on their own turf
+such as http://en.wikipedia.org/wiki/D_%28programming_language%29[D]
+or http://www.ecere.com/[Ecere] (and earlier efforts such as Ada 95, or
+Object Pascal) and they can be commended for that, but unlike them, Spark does 
+not aim to replace C in most of the valid use cases for it.
+
+Spark will be a dynamic (so-called "scripting") programming language
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Spark will be an alternative to such languages as Perl, Python, Ruby,
+PHP, Tcl, Lua or io-language, which are all very different but have APIs
+to achieve similar ends and are used for similar tasks. Like them and 
+Lisp (which is one of the oldest dynamic languages) it will be able to
+determine a lot of behaviour at run time and will support dynamic
+"eval", call-by-name
+, run-time typing, run-time change of type for a datum, 
+multiple dispatch, polymorphic macros and other features of Lisp
+and other dynamic languages.
+
+Some people have been referring to Perl and friends as "scripting
+languages" but that implies they are only useful for scripts. See:
+
+http://xoa.petdance.com/Stop_saying_%22script%22
+
+While that article by Andy Lester illustrates the problem with labelling
+programming languages as "scripting languages", I still think saying
+"script" and "scripting" is a valid way to distinguish a trivial program
+from an application. For example +/usr/bin/gcc+ is essentially
+a script written in 
+ANSI C, which just passes controls to the various compilation stages. When
+we type +gcc+ at the command line, we are running this script that does the
+hard work of doing the compilation for us. (+/usr/bin/gcc+ should not be
+confused with GCC, the GNU Compiler Collection which is a compilation
+framework for C, C++ and other languages, and is a crucial piece of the
+open-source UNIX-like operating systems infrastructure).
+
+For an "in your face" anti-thesis to the aversion to call languages scripting
+languages see Larry Wall's "Progrmaming is Hard. Let's Go Scripting":
+
+http://www.perl.com/pub/a/2007/12/06/soto-11.html
+
+Spark will have a rich type system but won't be strongly typed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Like Common Lisp, Python, Ruby and Perl 6 and to some extent unlike Perl 5, 
+Spark will have a rich type system. However, it won't be strongly typed like
+Haskell (which will no longer be considered Lisp). A variable can be assigned
+different values with different types during its run-time, and functions
+would be able to accept variables of any type (unless they specifically forbit
+it).
+
+The Spark type system will be extendable at run time, and will be analogous to
+its Object Oriented Programming (OOP) system. As a result, one would be able
+to call methods on pieces of data, on expressions, on S-expressions, and 
+on functions, macros, classes and method declarations, and on their 
+application.
+
+In Spark "everything will be an object", but unlike Java, it won't be 
+overly-OO. One won't need to instantiate a class and declare a method
+just to print "Hello World" on the screen. This will work:
+
+------------------------------------------------
+$ spark -e '(say "Hello World")'
+------------------------------------------------
+
+Or:
+
+------------------------------------------------
+$ spark -e '(print "Hello World\n")'
+------------------------------------------------
+
+Or:
+
+------------------------------------------------
+$ spark -e '(-> "Hello World" say)'
+------------------------------------------------
+
+Spark will be capable of being used for Scripting
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+While Spark should not be called a scripting language, just as the name is
+a misnomer ,
+Spark aims to be popular and be actively used for real-world tasks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Spark will have nested namespaces
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Spark will be more succinct than most Lisps, but not overly terse
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Spark will be written in plaintext
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Spark will not encourage a proliferation of implementations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Spark will not be the ultimate Lisp
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Some features of Common Lisp or other Lisps will be absent, some things will 
+be harder to do than Common Lisp or 

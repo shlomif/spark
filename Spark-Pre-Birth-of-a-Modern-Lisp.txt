@@ -165,6 +165,81 @@ Spark will be written in plaintext
 Spark will not encourage a proliferation of implementations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+As you all know Lisp is a family of languages, which includes Lisp, Scheme
+Arc, Emacs Lisp, etc. and some people may say also Dylan, and that Perl 5,
+Perl 6, Ruby, Python and most other modern languages have many Lispisms in
+them up to being able to translate many programs written in Lisp to them 
+line by line. (http://www.paulgraham.com/icad.html[See Paul Graham Revenge
+of the Nerds for the inspiration])
+
+However, some people on irc://irc.freenode.net/#scheme[#scheme] told me
+that Scheme, due to the proliferation of incompatible implementations, was 
+not one Lisp dialect, but a family of languages called "Scheme" with a
+common denominator. While I'm all for 
+http://en.wikipedia.org/wiki/Germanic_languages[Germanic languages]
+being a major sub-division of
+http://en.wikipedia.org/wiki/Indo-European_languages[Indo European languages],
+also with several mutually incomprehensible languages, I'm not sure I want
+a "Scheme programming language"-family within Lisp. It generally shouldn't
+happen with "man-made" and computer-understood languages that are more under
+our control.
+
+As a result, I'd like Spark to remain a single language with only a few
+implementations, possibly only one for each target virtual machine (e.g:
+Parrotcode, the JVM, or the .NET CLR, or a C-based interpreter). Spark will
+be defined and compatible even in its internals, its foreign-function
+interface, and "standard library" (which will also have something more 
+like CPAN is for Perl 5, where every J. Random Hacker can upload their
+own INI parser, under a different namespace), and core functionality.
+
+Spark will have an open-source source code (GPL-compatible BSD-style or 
+possibly partially Artistic 2.0 in case some of the code is derived from 
+Parrot code), which naturally can be span-off, branches, and forked. However,
+none of them pose a threat to the fact that the Spark implementation will 
+remain unified. 
+
+If someone changes Spark in incompatible ways, it may either die, or forked
+into a new language. This language will also be Lisp and may be Spark-like
+but it won't be Spark. Perl 5 which only has one major implementation
+(+perl5+ - currently at +perl-5.10.0+), recently span off 
+http://search.cpan.org/dist/kurila/[kurila] which is fork of perl 5 that is
+incompatible with it and with Perl 5, on purpose. Nevertheless, while 
+Kurila may be considered a a language in the Perl family, it is not Perl 5
+any more than Perl 4 , Perl 6 , http://sleep.dashnine.org/[Sleep] or whatever
+are. So Perl 5 has still not become a family of incompatible implementations.
+
+Another factor that will disaude people from creating multiple implementations
+of Spark is that as opposed to Scheme, creating a Spark implementation from
+scratch is not going to be trivial. It's not that Spark will be needlessly 
+complixified, but that it would be needfully complex to implement to be an 
+expressive, feature-rich and high-quality language.
+
+To quote Bjarne Stroustrup (the creator of C++ ) from his
+http://www.research.att.com/~bs/bs_faq.html#Java[FAQ question about Java]
+
+____
+Much of the relative simplicity of Java is - like for most new languages -
+partly an illusion and partly a function of its incompleteness. As time passes,
+Java will grow significantly in size and complexity. It will double or triple
+in size and grow implementation-dependent extensions or libraries. That is the
+way every commercially successful language has developed. Just look at any
+language you consider successful on a large scale. I know of no exceptions, and
+there are good reasons for this phenomenon. [I wrote this before 2000; now see
+a preview of Java 1.5.] 
+___
+
+(I should note that, like many other FOSS hackers, I normally prefer ANSI C
+over C++ , and am not a big fan of C++ for most stuff. However, Stroustrup
+is a wickedly smart guy, and despite whatever faults his language may has,
+is a good guy, and what he says here seems to make a lot of sense).
+
+Spark hopefully won't be as complex as C++ is today from the beginning,
+but will also be more complex than Scheme to allow for better expression
+and faster development. It also doesn't aim to be an incremental improvement
+over Scheme (and Common Lisp) which seems to be the case for Arc
+and Clojure, but rather something like Perl 5 was to Perl 4 or Perl 6 is
+to Perl 5 : a paradigm shift, which Lispers and non-Lispers alike will
+appreciate. 
 
 Spark will not be the ultimate Lisp
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -18,6 +18,8 @@ technologies including Perl 5, Perl 6, Python, Ruby, Java and Haskell.
 Some Spark Essentials
 ---------------------
 
+TODO : FILL IN.
+
 Spark is not another implementation of Scheme (or Common Lisp)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -127,9 +129,13 @@ Spark will be capable of being used for Scripting
 
 While Spark should not be called a scripting language, just as the name is
 a misnomer ,
+
+TODO : fill in.
+
 Spark aims to be popular and be actively used for real-world tasks
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+TOOD : fill in.
 
 Spark will have nested namespaces
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -159,8 +165,12 @@ of Comprehensive Archive Networks"]
 Spark will be more succinct than most Lisps, but not overly terse
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+TODO : fill in.
+
 Spark will be written in plaintext
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+TODO : fill in.
 
 Spark will not encourage a proliferation of implementations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -214,10 +224,11 @@ scratch is not going to be trivial. It's not that Spark will be needlessly
 complixified, but that it would be needfully complex to implement to be an 
 expressive, feature-rich and high-quality language.
 
-To quote Bjarne Stroustrup (the creator of C++ ) from his
+To quote Bjarne Stroustrup (the creator \+1 of C++ ) from his
 http://www.research.att.com/~bs/bs_faq.html#Java[FAQ question about Java]
 
-____
+[quote, Bjarne Stroustrup, FAQ Question about Java]
+__________________________________________________________________________
 Much of the relative simplicity of Java is - like for most new languages -
 partly an illusion and partly a function of its incompleteness. As time passes,
 Java will grow significantly in size and complexity. It will double or triple
@@ -226,14 +237,14 @@ way every commercially successful language has developed. Just look at any
 language you consider successful on a large scale. I know of no exceptions, and
 there are good reasons for this phenomenon. [I wrote this before 2000; now see
 a preview of Java 1.5.] 
-___
+__________________________________________________________________________
 
 (I should note that, like many other FOSS hackers, I normally prefer ANSI C
-over C++ , and am not a big fan of C++ for most stuff. However, Stroustrup
+\+1 over C++ , and am not a big \+1 fan of C++ for most stuff. However, Stroustrup
 is a wickedly smart guy, and despite whatever faults his language may has,
-is a good guy, and what he says here seems to make a lot of sense).
+he speaks straight, and what he says here seems to make a lot of sense).
 
-Spark hopefully won't be as complex as C++ is today from the beginning,
+Spark hopefully won't be as \+1 complex as C++ is today from the beginning,
 but will also be more complex than Scheme to allow for better expression
 and faster development. It also doesn't aim to be an incremental improvement
 over Scheme (and Common Lisp) which seems to be the case for Arc
@@ -241,8 +252,33 @@ and Clojure, but rather something like Perl 5 was to Perl 4 or Perl 6 is
 to Perl 5 : a paradigm shift, which Lispers and non-Lispers alike will
 appreciate. 
 
-Spark will not be the ultimate Lisp
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The first version of Spark will not be the ultimate Lisp
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Some features of Common Lisp or other Lisps will be absent, some things will 
-be harder to do than Common Lisp or 
+Some features of Common Lisp or other Lisps will be absent in Spark, some 
+things will be harder to do than Common Lisp or even other Lisps or other
+non-Lisp programming languages, and some things will not work as expected
+at first (bugs, etc.). A lot of it will be caused due to the fact that the 
+primary author of this document does not consider himself a Scheme expert
+(and is very far from being a Common Lisp expert) and just likes Lisp and
+Perl 5 and other languages enough to want to promote them. 
+
+As a result, some estoric features of the popular Lisp languages today or
+some languages that he has not fully investigated yet, won't be available
+at first. This is expected given his ignorance, enthusiasm and anxiety
+to get something out of the door first. 
+
+While he would still be interested in learning about whatever core library or 
+meta-programmatic features other languages have that may prove useful for 
+the core Spark language (or alternatively cool APIs that you think should
+be ported to Spark). But he has little patience to learn entire languages
+"fully" (if learning any non-trivial language fully is indeed possible)
+before starting to work on Spark. And often ignorance is a virtue.
+
+So the first versions of Spark will still have some room for improvement.
+Most of it may hopefully be solvable using some meta-syntactic or 
+meta-programming user-land libraries (as is often the case for Lisps and
+other dynamic languages). As for the rest, we could consider them bad design
+decisions that still add to the language's colour and make it a bit more
+interesting to program in than a 100% perfect language. Sometimes perfection
+is in imperfection.

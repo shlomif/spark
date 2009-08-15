@@ -394,7 +394,7 @@ Which isn't much worse than Perl. We're not trying to beat Perl 5, Perl 6
 or much less J in code Golfing in every case - this isn't a peeing contest.
 We're just trying to make easy tasks easy.
 
-Furthermore, while +++=++ ++-=++ ++*=++ and friends will be defined there
+Furthermore, while *\+=*, *-=*, */=* and friends will be defined there
 will be a macro (that will be used defined by the prelude and used there)
 to define your own +${op}=+ operators. Like +(list=)+ or +(myfunc=)+.
 
@@ -519,7 +519,7 @@ $ spark -pe '(~ ^LINE (re.s /ba([zro])(\s+)mozart/ ma$1$2bozart))'
 C/Perl/etc. conventions
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Spork will be case-sensitive
+1. Spark will be case-sensitive
 
 2. Unicode (UTF-8) aware-and-safe
 

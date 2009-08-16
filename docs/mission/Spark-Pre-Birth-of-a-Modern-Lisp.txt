@@ -505,8 +505,8 @@ $ spark -pe '(~ ^LINE (re.s {ba([zro])(\s+)mozart} ma$1$2bozart))'
 ---------------------
 
 And it will replace the first +baz[whitespace]mozart+ with 
-+maz[whitespace]bozart+ etc. The +~+ operator is similar to Perl 5's
-+=~+ or perl-5.10.0's or Perl 6's +~~+ or in that it does a smart matching
++maz[whitespace]bozart+ etc. The +\~+ operator is similar to Perl 5's
++=\~+ or perl-5.10.0's or Perl 6's +~~+ or in that it does a smart matching
 of a datum (which could be a list) to an abstract operation. 
 
 We can also use other delimiters instead of +{...}+ in the +(re.s...)+

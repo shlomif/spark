@@ -35,7 +35,7 @@ Spark does not aim to compete with C and friends
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Spark does not aim to fill the same ecological niche as ANSI C, C++
-Objective-C, etc. much less Assembly. ANSI C and friends have been the
+Objective-C, etc. - much less assembly. ANSI C and friends have been the
 de-facto standard for writing applications when some or all of certain
 constraints have been met:
 
@@ -147,8 +147,8 @@ Line Count:
 $ spark -e '(-> (fh ARGV) foreach (++ i)) (say i)' [Files]
 ------------------------------------------------
 
-Line Count Reloaded:
-^^^^^^^^^^^^^^^^^^^^
+Line Count Reloaded
+^^^^^^^^^^^^^^^^^^^
 
 ------------------------------------------------
 $ spark -e '(say (: len getlines (-> (fh ARGV))' [Files]
@@ -157,8 +157,8 @@ $ spark -e '(say (: len getlines (-> (fh ARGV))' [Files]
 +(: ... )+ serves the same purpose as Haskell's +$+ - to chain function
 calls without too many nested parameters.
 
-Double-space a file:
-^^^^^^^^^^^^^^^^^^^^
+Double-space a file
+^^^^^^^^^^^^^^^^^^^
 
 ------------------------------------------------
 $ spark -pe '(say)'
@@ -166,8 +166,8 @@ $ spark -pe '(say)'
 
 (Think Perl)
 
-Number lines in each file:
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Number lines in each file
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ------------------------------------------------
 $ spark -ne '(say "${^LINENUM} ${^LINE}")'

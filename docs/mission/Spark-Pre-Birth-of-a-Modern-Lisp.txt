@@ -1,5 +1,7 @@
 Spark - Pre-Birth of a Modern Lisp
 ==================================
+Author: Shlomi Fish
+Email: shlomif@iglu.org.il
 
 Introduction
 ------------
@@ -635,3 +637,12 @@ other dynamic languages). As for the rest, we could consider them bad design
 decisions that still add to the language's colour and make it a bit more
 interesting to program in than a 100% perfect language. Sometimes perfection
 is in imperfection.
+
+Licence
+-------
+
+This document is copyright by http://www.shlomifish.org/[Shlomi Fish], 2009
+and is available under the 
+http://creativecommons.org/licenses/by/3.0/[Creative Commons Attribution
+3.0 Licence], or at your option any later version of it.
+

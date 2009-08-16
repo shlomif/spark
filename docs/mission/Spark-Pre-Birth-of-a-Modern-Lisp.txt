@@ -550,7 +550,7 @@ our control.
 As a result, I'd like Spark to remain a single language with only a few
 implementations, possibly only one for each target virtual machine (e.g:
 Parrotcode, the JVM, or the .NET CLR, or a C-based interpreter). Spark will
-be defined and compatible even in its internals, its foreign-function
+be defined and compatible even in its internals, its foreign function
 interface, and "standard library" (which will also have something more 
 like CPAN is for Perl 5, where every J. Random Hacker can upload their
 own INI parser, under a different namespace), and core functionality.

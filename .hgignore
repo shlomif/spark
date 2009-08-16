@@ -1,3 +1,4 @@
-^\..*.swp$
+(^|/)\..*.swp$
 ^.*~
 Spark-Pre-Birth-of-a-Modern-Lisp.html
+^docs/mission/Spark-Pre-Birth-of-a-Modern-Lisp\.(fo|pdf|xml)$

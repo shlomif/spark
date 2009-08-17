@@ -13,9 +13,17 @@ about the fundamentals of its behaviour. Nevertheless, some preliminary
 (and still subject to change) specification of it will be given and some
 code examples will brought.
 
-Besides contemporary Lisp dialects such as Common Lisp, Scheme and Arc, Spark
-draws a lot of inspiration from other modern languages, paradigms, and
-technologies including Perl 5, Perl 6, Python, Ruby, Java and Haskell.
+Besides contemporary Lisp dialects such as 
+http://en.wikipedia.org/wiki/Common_Lisp[Common Lisp], 
+http://en.wikipedia.org/wiki/Scheme_%28programming_language%29[Scheme]
+and http://en.wikipedia.org/wiki/Arc_%28programming_language%29[Arc], 
+Spark draws a lot of inspiration from other modern languages, paradigms, and
+technologies including http://perl-begin.org/[Perl 5], 
+http://en.wikipedia.org/wiki/Perl_6[Perl 6], 
+http://en.wikipedia.org/wiki/Python_%28programming_language%29[Python], 
+http://en.wikipedia.org/wiki/Ruby_%28programming_language%29[Ruby], 
+Java and 
+http://en.wikipedia.org/wiki/Haskell_%28programming_language%29[Haskell].
 
 Some Spark Essentials
 ---------------------

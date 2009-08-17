@@ -431,7 +431,8 @@ with post-increment/post-decrement and pre-incremenet/pre-decrement variations.
 
 Finally, by inspiration from Arc, we decided to do something about excessive 
 parens. So we will have a +(with (k1 v1 k2 v2 k3 v3) .... )+ scoping instead
-of the unweildy Scheme +(let*)+ and +(letrec)+ (both will be easily replacebe
+of the unweildy Scheme +(let*)+ and +(letrec)+ (both will be easily
+replaceble
 by +(with...)++ with some macro or VM trickery.). And we'll have a C-style
 for-loop instead of the obscure +(do...)++ and a while loop, and a 
 Perl 5/Perl 6-style foreach loop, and maybe other loops too. And you can
@@ -453,8 +454,8 @@ vowels and he was pleased.
 Seriously now, I don't like (fn) because it's hard to pronounce, doesn't sound
 right when you read it to your mind's ear, and is abnoxious. While being
 succinct is a noble goal, picking psychologically-sound and intuitive 
-conventions is also important. I recall searching the Arc tutorial for
-a +(not)+ only to found it was spelled +(no)+:
+conventions is also important. I recall searching the Arc tutorial and
+documentation for a +(not)+ function only to found it was spelled +(no)+:
 
 ----------------
 (if (no soup) (print "soup is false"))
@@ -498,14 +499,11 @@ $
 
 Or put /usr/bin/env spark or whatever in your sha-bang and it will work.
 
-A spark program will do its thing, execute to the finish and execute.
+A spark program will do its thing, execute to the finish and gracefully exit.
 
-We will still have a REPL for Emacs SLIME lovers or for people using IDEs
-such as Eclipse. Even Vim/gvim may get a REPL if it gets something like an 
-embedded shell like Emacs has, and which while of little immediate use to me,
-seems like a killer and an absolutely essential feature. Hopefully Bram
-(the Vim guy) will read it and apply the patch for it, which has been
-maintained separately in quite a while.
+We will still have a REPL, that can be used from the command-line or from
+within Emacs SLIME or within IDEs such as Eclipse. Even Vim/gvim may get a 
+REPL if it gets something like an embedded shell like Emacs has.
 
 Spark programs can be abstract syntax trees, a network of objects, some
 compiled bytecode or flying unicorn ponies who drop candy. Nevertheless,
@@ -530,7 +528,7 @@ $ spark -pe '(~ ^LINE (re.s {ba([zro])(\s+)mozart} ma$1$2bozart))'
 ---------------------
 
 And it will replace the first +baz[whitespace]mozart+ with 
-+maz[whitespace]bozart+ etc. The +\~+ operator is similar to Perl 5's
++maz[whitespace]bozart+ , etc. The +\~+ operator is similar to Perl 5's
 +=\~+ or perl-5.10.0's or Perl 6's +~~+ or in that it does a smart matching
 of a datum (which could be a list) to an abstract operation. 
 

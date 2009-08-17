@@ -366,7 +366,7 @@ and keywords there are excessively long. ++(string->integer)++ ,
 ++(lambda)++ , ++(concatenate)++ , etc. Yes, you can easily assign aliases
 to them, but it:
 
-1. Takes time to write it and more time to maintain it.
+1. Takes time to write and more time to maintain.
 
 2. Will require you to carry and update a meta-syntactic package in all your
 code.

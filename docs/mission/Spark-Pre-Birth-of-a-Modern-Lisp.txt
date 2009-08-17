@@ -20,40 +20,19 @@ technologies including Perl 5, Perl 6, Python, Ruby, Java and Haskell.
 Some Spark Essentials
 ---------------------
 
-TODO : FILL IN.
+These are some of the guiding elements in the design of Spark.
 
 Spark is not another implementation of Scheme (or Common Lisp)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There are far too many implementations of Scheme out there, and probably too
 many of Common Lisp. However, that is besides the point that we did not come
-to praise the existing dialects of Lisp, by implement them again.
+to praise the existing dialects of Lisp, by implementing them again.
 
 Spark will be a completely different dialect of Lisp. It won't be compatible
 with either Scheme (or any of its implementations), Common Lisp or even with
 Arc. It will still be Lisp, though, as we hope you will see.
 
-Spark does not aim to compete with C and friends
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Spark does not aim to fill the same ecological niche as ANSI C, C++
-Objective-C, etc. - much less assembly. ANSI C and friends have been the
-de-facto standard for writing applications when some or all of certain
-constraints have been met:
-
-http://www.shlomifish.org/philosophy/computers/when-c-is-best/
-
-While their use have lately been diminishing somewhat due to the increasing
-attractiveness of the Java or .NET frameworks or the various dynamic
-languages (Perl/Python/PHP/Ruby/etc.) they are nevertheless still very much 
-in vogue and even the backends for the more high-level virtual machines
-are written in C and C++ .
-
-There have been some efforts to compete with C and C++ on their own turf
-such as http://en.wikipedia.org/wiki/D_%28programming_language%29[D]
-or http://www.ecere.com/[Ecere] (and earlier efforts such as Ada 95, or
-Object Pascal) and they can be commended for that, but unlike them, Spark does 
-not aim to replace C in most of the valid use cases for it.
 
 Spark will be a dynamic (so-called "scripting") programming language
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -90,20 +69,130 @@ languages see Larry Wall's "Progrmaming is Hard. Let's Go Scripting":
 
 http://www.perl.com/pub/a/2007/12/06/soto-11.html
 
+Spark aims to be popular and be actively used for real-world tasks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+While other general purpose Lisps such as Common Lisp, Scheme, Arc or
+Clojure have been influential and have some followers and users, none of them
+are actively used with the same popularity as Perl, Python, Ruby or PHP are.
+Spark aims to be a popular lisp dialect which will be actively used for
+real-world tasks, not just toy or experimentation code. 
+
+Eventually, it is our hope that some people will get paid to maintain Spark 
+code. Some of them against their best preferences, like some people now are
+maintaining Perl 5, PHP or even Python code while prefering a different
+language. (Simply because it puts bread on their table, and they cannot get
+paid to write something else.)
+
+Python? Yes! Google for example has been hiring several Perl 5 or even Perl 5
+and Perl 6 programmers and instructing them to program mostly in Python. I've
+known two or three of them myself. Many of them tolerate or even like Python
+enough to program in it, but many of them still prefer Perl and consider
+themselves as Perlers at heart. But Google gives very good conditions and
+many Perl programmers (despite a huge demand for them) are treated badly
+or have advanced to better paying positions. And naturally a lot of the
+"younger generation" (most of them) bought the hype that you shouldn't need 
+to learn Perl if you already know PHP, or Python or Java or whatever.
+
+In any case, Spark aims to become roughly as popular as any of Perl/PHP/etc.
+It is not guaranteed that we succeed , but we still would like to try.
+What can we do to increase our chances?
+
+Paul Graham has written about http://www.paulgraham.com/popular.html[what 
+makes a language popular]. Arguably, he failed to make Arc as popular as
+he wanted, even after it was released (and may have violated some of his
+own guidelines), but the guidelines in the article are still sound
+(ad-hominem anecdote put aside).
+
+One can spend a lot of time expanding on Graham's points and adding more stuff
+(including possibly good timing and luck and possibly a lot of financial 
+backing can help, which most open-source enthusiasts don't have).
+
+However, it is important to note that this is our ultimate goal. Some languages
+didn't have a lot of financial backing before they got popular - Perl, Python,
+PHP and Ruby are examples of it. Can we do the same?
+
+None of the P-languages are perfect. Someone on #scheme gave me a moderate
+list of must have items out of which Perl, Python, PHP and Ruby each violate
+at least one and Scheme and Common Lisp none. I can quote him here as the
+channel is publicly logged. 
+
+I'm not going to try to violate any of them (or any of the many common sense
+"never-do-it"'s that PHP alone has violated, to say nothing of the rest) on 
+purpose in hope it will save me from the evil eye of having a decent language.
+But I don't think languages succeed because they are bad but because they offer
+at least one awesome advantage. For example Perl 1 offered the ability to write
+pseudo-shell scripts in a much more robsut and powerful way than awk, sed, sh
+and csh and a much easier way than ANSI C did. (Although still very primitive
+by the standards of Perl 5.). By the time Perl 4 was abandoned in favour of
+Perl 5 , Perl 4 was already the de-facto standard for clueful
+sys admins who valued their sanity. And I recall when Perl 5 was the only
+real solution for writing CGI scripts that you could use because I was hired
+to work as a web developer at that time.
+
+PHP was similar enough to Perl 5 to fool people into believing it was adequate
+(while messing up the internal behaviour and core language royally) and offered
+more ubiquity as far as setting up on web-hosts was concerned (which Perl 5
+is still trying to catch up). You can now download very powerful and gratis
+content management systems in PHP (and other gratis web applications) and
+run them out of the box on your cheap hosting and call yourself a webmaster,
+which would be hard with any other UNIX-based solution. PHP as a language
+has many issues, but they got some parts of the implementation needs right,
+and this is what made it popular.
+
+We need to find some good reasons for people to become hooked on Spark. 
+Spark probably won't be perfect because I am not perfect and don't know all
+their is to know about language design. However, neither are
+Scheme and Common Lisp. But even if Spark doesn't have so many quirks like 
+PHP or Perl (or even Python) it should be an attractive platform for people
+to experiment with, write scripts in daily, write toy programs and serious
+applications, and then one day we may get a killer app like Ruby's Ruby on
+Rails.
+
+(Hopefully, we won't get the added RoR hype, which I admit is based on
+viral marketing and community efforts, but was hype nonetheless. Perl and
+PHP were never strongly hyped, and they seem to have been doing fine without
+it.)
+
+Spark does not aim to compete with C and friends
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Spark does not aim to fill the same ecological niche as ANSI C, C++
+Objective-C, etc. - much less assembly. ANSI C and friends have been the
+de-facto standard for writing applications when some or all of certain
+constraints have been met:
+
+http://www.shlomifish.org/philosophy/computers/when-c-is-best/
+
+While their use have lately been diminishing somewhat due to the increasing
+attractiveness of the Java or .NET frameworks or the various dynamic
+languages (Perl/Python/PHP/Ruby/etc.) they are nevertheless still very much 
+in vogue and even the backends for the more high-level virtual machines
+are written in C and C++ .
+
+There have been some efforts to compete with C and C++ on their own turf
+such as http://en.wikipedia.org/wiki/D_%28programming_language%29[D]
+or http://www.ecere.com/[Ecere] (and earlier efforts such as Ada 95, or
+Object Pascal) and they can be commended for that, but unlike them, Spark
+does not aim to replace C in most of the valid use cases for a C-like
+language.
+
 Spark will have a rich type system but won't be strongly typed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Like Common Lisp, Python, Ruby and Perl 6 and to some extent unlike Perl 5, 
 Spark will have a rich type system. However, it won't be strongly typed like
-Haskell (which will no longer be considered Lisp). A variable can be assigned
-different values with different types during its run-time, and functions
-would be able to accept variables of any type (unless they specifically forbit
-it).
+Haskell. If Spark had been going to be strongly typed, it could no longer have
+been considered a Lisp, and I happen to like dynamic typing.
+
+A variable can be assigned different values with different types during its
+run-time, and functions would be able to accept variables of any type 
+(unless they specifically forbid it).
 
 The Spark type system will be extendable at run time, and will be analogous to
 its Object Oriented Programming (OOP) system. As a result, one would be able
-to call methods on pieces of data, on expressions, on S-expressions, and 
-on functions, macros, classes and method declarations, and on their 
+to call methods on pieces of data, on expressions, on S-expressions, and
+on functions, macros, classes and method declarations, and on their
 application.
 
 In Spark "everything will be an object", but unlike Java, it won't be 
@@ -243,91 +332,6 @@ interfaces, to steal the +--dump-code+ idea. Maybe one day someone will become
 a multi-millionaire from selling a 300K Lines program that evolved from a
 simple +spark/perl/ruby --dump-code=code.... -e '....'+ invocation (after
 a succesful plain +-e+ invocation).
-
-Spark aims to be popular and be actively used for real-world tasks
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-While other general purpose Lisps such as Common Lisp, Scheme, Arc or
-Clojure have been influential and have some followers and users, none of them
-are actively used with the same popularity as Perl, Python, Ruby or PHP are.
-Spark aims to be a popular lisp dialect which will be actively used for
-real-world tasks, not just toy or experimentation code. 
-
-Eventually, it is our hope that some people will get paid to maintain Spark 
-code. Some of them against their best preferences, like some people now are
-maintaining Perl 5, PHP or even Python code while prefering a different
-language. (Simply because it puts bread on their table, and they cannot get
-paid to write something else.)
-
-Python? Yes! Google for example has been hiring several Perl 5 or even Perl 5
-and Perl 6 programmers and instructing them to program mostly in Python. I've
-known two or three of them myself. Many of them tolerate or even like Python
-enough to program in it, but many of them still prefer Perl and consider
-themselves as Perlers at heart. But Google gives very good conditions and
-many Perl programmers (despite a huge demand for them) are treated badly
-or have advanced to better paying positions. And naturally a lot of the
-"younger generation" (most of them) bought the hype that you shouldn't need 
-to learn Perl if you already know PHP, or Python or Java or whatever.
-
-In any case, Spark aims to become roughly as popular as any of Perl/PHP/etc.
-It is not guaranteed that we succeed , but we still would like to try.
-What can we do to increase our chances?
-
-Paul Graham has written about http://www.paulgraham.com/popular.html[what 
-makes a language popular]. Arguably, he failed to make Arc as popular as
-he wanted, even after it was released (and may have violated some of his
-own guidelines), but the guidelines in the article are still sound. 
-(ad-hominem anecdote put aside).
-
-One can spend a lot of time expanding on Graham's points and adding more stuff
-(including possibly good timing and luck and possibly a lot of financial 
-backing can help, which most open-source enthusiasts don't have).
-
-However, it is important to note that this is our ultimate goal. Some languages
-didn't have a lot of financial backing before they got popular - Perl, Python,
-PHP and Ruby are examples of it. Can we do the same?
-
-None of the P-languages are perfect. Someone on #scheme gave me a moderate
-list of must have items out of which Perl, Python, PHP and Ruby each violate
-at least one and Scheme and Common Lisp none. I can quote him here as the
-channel is publicly logged. 
-
-I'm not going to try to violate any of them (or any of the many common sense
-"never-do-it"'s that PHP alone has violated, to say nothing of the rest) on 
-purpose in hope it will save me from the evil eye of having a decent language.
-But I don't think languages succeed because they are bad but because they offer
-at least one awesome advantage. For example Perl 1 offered the ability to write
-pseudo-shell scripts in a much more robsut and powerful way than awk, sed, sh
-and csh and a much easier way than ANSI C did. (although still very primitive
-by the standards of Perl 5). By the time Perl 4 was abandoned in favour of
-Perl 5 , Perl 4 was already the de-facto standard for clueful
-sys admins who valued their sanity. And I recall when Perl 5 was the only
-real solution for writing CGI scripts that you could use because I was hired
-to work as a web developer at that time.
-
-PHP was similar enough to Perl 5 to fool people into believing it was adequate
-(while messing up the internal behaviour and core language royally) and offered
-more ubiquity as far as setting up on web-hosts was concerned (which Perl 5
-is still trying to catch up). You can now download very powerful and gratis
-content management systems in PHP (and other gratis web applications) and
-run them out of the box on your cheap hosting and call yourself a webmaster,
-which would be hard with any other UNIX-based solution. PHP as a language
-has many issues, but they got some parts of the implementation needs right,
-and this is what made it popular.
-
-We need to find some good reasons for people to become hooked on Spark. 
-Spark probably won't be perfect because I am not perfect and don't know all
-their is to know about language design. However, neither are
-Scheme and Common Lisp. But even if Spark doesn't have so many quirks like 
-PHP or Perl (or even Python) it should be an attractive platform for people
-to experiment with, write scripts in daily, write toy programs and serious
-applications, and then one day we may get a killer app like Ruby's Ruby on
-Rails. 
-
-(Hopefully, we won't get the added RoR hype, which I admit is based on
-viral marketing and community efforts, but was hype nonetheless. Perl and
-PHP were never strongly hyped, and they seem to have been doing fine without
-it.)
 
 Spark will have nested namespaces
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

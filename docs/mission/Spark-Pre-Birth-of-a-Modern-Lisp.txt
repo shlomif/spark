@@ -559,7 +559,7 @@ line by line. (http://www.paulgraham.com/icad.html[See Paul Graham Revenge
 of the Nerds for the inspiration])
 
 However, some people on irc://irc.freenode.net/#scheme[#scheme] told me
-that Scheme, due to the proliferation of incompatible implementations, was 
+that Scheme, due to the proliferation of incompatible implementations, was
 not one Lisp dialect, but a family of languages called "Scheme" with a
 common denominator. While I'm all for 
 http://en.wikipedia.org/wiki/Germanic_languages[Germanic languages]
@@ -600,7 +600,7 @@ scratch is not going to be trivial. It's not that Spark will be needlessly
 complixified, but that it would be needfully complex to implement to be an 
 expressive, feature-rich and high-quality language.
 
-To quote Bjarne Stroustrup (the creator \+1 of C++ ) from his
+To quote Bjarne Stroustrup (the creator of C++ ) from his
 http://www.research.att.com/~bs/bs_faq.html#Java[FAQ question about Java]
 
 [quote, Bjarne Stroustrup, FAQ Question about Java]
@@ -616,11 +616,11 @@ a preview of Java 1.5.]
 __________________________________________________________________________
 
 (I should note that, like many other FOSS hackers, I normally prefer ANSI C
-\+1 over C++ , and am not a big \+1 fan of C++ for most stuff. However, Stroustrup
+over C\++ , and am not a big fan of C++ for most stuff. However, Stroustrup
 is a wickedly smart guy, and despite whatever faults his language may have,
 he speaks straight, and what he says here seems to make a lot of sense).
 
-Spark hopefully won't be as \+1 complex as C++ is today from the beginning,
+Spark hopefully won't be as complex as C++ is today from the beginning,
 but will also be more complex than Scheme to allow for better expression
 and faster development. It also doesn't aim to be an incremental improvement
 over Scheme (and Common Lisp) which seems to be the case for Arc

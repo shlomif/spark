@@ -223,6 +223,9 @@ Or:
 $ spark -e '(-> "Hello World" say)'
 ------------------------------------------------
 
++->+ Is a simple macro that converts +(-> obj method args)+ to
++(method obj args)+ and is used for some syntactic sugar.
+
 Spark will be capable of being used for Scripting
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -243,18 +246,25 @@ Line Count:
 ^^^^^^^^^^^
 
 ------------------------------------------------
-$ spark -e '(-> (fh ARGV) foreach (++ i)) (say i)' [Files]
+$ spark -e '(foreach (fh ARGV) (++ i)) (say i)' [Files]
 ------------------------------------------------
 
 Line Count Reloaded
 ^^^^^^^^^^^^^^^^^^^
 
 ------------------------------------------------
-$ spark -e '(say (: len getlines (-> (fh ARGV))' [Files]
+$ spark -e '(: say len getlines fh ARGV)' [Files]
 ------------------------------------------------
 
 +(: ... )+ serves the same purpose as Haskell's +$+ - to chain function
-calls without too many nested parameters.
+calls without too many nested parameters. So this script is equivalent
+to saying:
+
+------------------------------------------------
+$ spark -e '(say (len (getlines (fh ARGV))))' [Files]
+------------------------------------------------
+
+But is shorter and cleaner.
 
 Double-space a file
 ^^^^^^^^^^^^^^^^^^^
@@ -286,7 +296,7 @@ are usually in all-capitals. Unlike Perl 5 (or Common Lisp), we are not a
 Lisp-2 and we use the same symbol namespace for everything (like Scheme). So
 we can put assign a lambda 
 (could be  +(fun ... )+ , +(sub ... )+ , +(lambda ...)+ or 
-+(function ... )+ - all precise synonyms) to a variable and call it with a
++(function ... )+ - all exact synonyms) to a variable and call it with a
 value:
 
 ---------------------
@@ -347,16 +357,17 @@ Spark will have nested namespaces
 Spark will have a similar namespace system to Perl 5, with nested namespaces,
 and the ability to selectively import symbols from namespaces at run-time.
 Similarly to http://search.cpan.org/dist/Sub-Exporter/ and as opposed to
-C++ where namespaces are all-or-nothing, and so mostly unusable.
+C++ where importing symbols from namespaces is an all-or-nothing operation,
+and so mostly unusable.
 
-As opposed to Java one would be able to import several symbols from a 
+As opposed to Java one would be able to import several symbols from a
 namespace at once and grouped by tags. +Sub-Exporter+ gives much more than
-that for Perl 5, but I don't recall all the details from the slides I saw 
+that for Perl 5, but I don't recall all the details from the slides I saw
 about it. +:-)+ .
 
 Like Perl 5 one will be able to import symbols at run-time.
 
-As opposed to Perl 5 classes won't be automatically associated with
+As opposed to Perl 5, classes won't be automatically associated with
 namespaces, and a namspace may contain one or more classes (or none).
 Like CPAN and unlike Java (+org.apache.jakarta...+), we will not enforce 
 namespace purity, but hopefully there will be a better mechanism than the

@@ -389,7 +389,7 @@ $myarray[$idx] += 2;
 And in Spark would be:
 
 ---------------------
-(+= (: myarray [ idx ]) 2)
+(+= (-> myarray ([ idx ])) 2)
 ---------------------
 
 Which isn't much worse than Perl. We're not trying to beat Perl 5, Perl 6

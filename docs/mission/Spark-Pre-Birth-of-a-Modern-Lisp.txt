@@ -698,6 +698,39 @@ BSD-style licence that specifically allows sub-licensing. To avoid legal
 confusion, every file should contain an explicit "Licensing" notice to 
 indicate under which license it is.
 
+Test-driven development
+~~~~~~~~~~~~~~~~~~~~~~~
+
+As opposed to Arc, which shipped with no automated tests, Spark will be
+developed in a Test-driven development fashion. Namely, it will have a 
+comprehensive test suite that will need to fully pass upon any commit to the
+trunk (or "master" or whatever the main branch is called). 
+
+The code of the tests is not expected to be authoritative for how the final
+version of the language will behave. Rather, some future design decisions will 
+require changing the code of a lot of the tests accordingly.
+
+I still don't have a clear idea of how to design a lot of "big picture"
+Spark design decisions. While I believe that design is good, I also think
+that Spark should be designed incrementally, and that we can expect many design
+decisions to change. Test-driven development, while accepting the fact that
+often a lot of testing code will need to be modified, will allow us to do 
+that.
+
+Documentation
+~~~~~~~~~~~~~
+
+It is our plan to keep documentation for the Spark language using POD,
+PseudoPod, AsciiDoc or a similar language so people will be able to learn it,
+without the need to delve into many tests or the core code itself. The
+documentation will be kept mostly up-to-date, but we can expect it to grow
+somewhat out-of-sync with the code.
+
+We're not planning to make exhaustive documentation - for example, the 
+internals of the front-end will not be very well documented, as they will
+tend to get out-of-sync with the code, and in general the code should be
+structured to be self-documenting and easy to understand using refactoring.
+
 Licence
 -------
 

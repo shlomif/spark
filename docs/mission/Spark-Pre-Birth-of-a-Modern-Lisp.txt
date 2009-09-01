@@ -659,6 +659,45 @@ decisions that still add to the language's colour and make it a bit more
 interesting to program in than a 100% perfect language. Sometimes perfection
 is in imperfection.
 
+Some Implementation Details
+---------------------------
+
+These are some implementation details that are still subject to change:
+
+Virtual Machine
+~~~~~~~~~~~~~~~
+
+I'm leaning towards making the initial Spark implementation use
+http://www.parrot.org/[Parrot] as its virtual machine. http://llvm.org/[LLVM]
+was suggested, and while it seems nice and powerful, it requires the compiler
+front end to be written in C/C\++ which will cause the time to market to grow
+considerably. I don't rule out a later implementation of Spark to LLVM, but
+during the initial implementation we would like to change things rapidly and
+quickly, and C or C\++ will slow us down considerably.
+
+I'm not keen on using the Java Virtual Machine, due to Java's long historical 
+reputation of being "enterprisey" and non-hacker friendly (see 
+http://www.paulgraham.com/javacover.html ), and due to the fact it has a slow 
+startup time, and that it feels very "sluggish"/non-responsive. Again, I don't
+rule out a future port of Spark to the JVM.
+
+The Parrot VM seems very suitable for dynamic languages, and it is progressing
+nicely. The http://www.parrot.org/languages[Parrot languages Page] already
+lists several implementation of Scheme which can serve as the basis for
+a Spark implementation, so I'd like to start there.
+
+Spark Licensing
+~~~~~~~~~~~~~~~
+
+Since we're building on Parrot, the licence of the non-original code will be
+the Artistic License 2.0, which is free, open-source, GPL-compatible and
+somwhere between a weak copyleft licence (e.g: the LGPL) and a permissive 
+licence (e.g: the 2-clause or 3-clause BSD licences). The original code 
+will be written under the MIT/X11 licence, which is a very permissive
+BSD-style licence that specifically allows sub-licensing. To avoid legal 
+confusion, every file should contain an explicit "Licensing" notice to 
+indicate under which license it is.
+
 Licence
 -------
 

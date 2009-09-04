@@ -188,13 +188,13 @@ language.
 Spark will have a rich type system but won't be strongly typed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Like Common Lisp, Python, Ruby and Perl 6 and to some extent unlike Perl 5, 
+Like Common Lisp, Python, Ruby and Perl 6 and to some extent unlike Perl 5,
 Spark will have a rich type system. However, it won't be strongly typed like
 Haskell. If Spark had been going to be strongly typed, it could no longer have
 been considered a Lisp, and I happen to like dynamic typing.
 
 A variable can be assigned different values with different types during its
-run-time, and functions would be able to accept variables of any type 
+run-time, and functions would be able to accept variables of any type
 (unless they specifically forbid it).
 
 The Spark type system will be extendable at run time, and will be analogous to
@@ -412,7 +412,7 @@ $myarray[$idx] += 2;
 And in Spark would be:
 
 ---------------------
-(+= (-> myarray ([ idx ])) 2)
+(+= (myarray idx) 2)
 ---------------------
 
 Which isn't much worse than Perl. We're not trying to beat Perl 5, Perl 6
@@ -483,8 +483,9 @@ Spark will be written in plaintext
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 What do I mean? +sbcl+ forces to write a long command line just to run a
-program from the command line and exit. Arc was not better and could not execute
-a program directly. I added this functionality to the Arc git repository myself.
+program from the command line and exit. Arc was not better and could not
+execute a program directly. I added this functionality to the Arc git
+repository myself.
 
 No, the REPL won't be gone in spark, and good old +(load)+ will still be 
 there. But you can also do:
@@ -510,7 +511,7 @@ compiled bytecode or flying unicorn ponies who drop candy. Nevertheless,
 they are still read from text. If you want to change the state of REPL until
 you forget what it has now or it changes unbeknowest to you
 ("Parallelism!!!!") it's an option. But you can still write your tests,
-run, debug, change, run debug, etc. Hopefully with automated tests for 
+run, debug, change, run debug, etc. Hopefully with automated tests for
 extra bonus points in Software Management sainthood.
 
 Regexps and other important elements have dedicated syntax
@@ -574,14 +575,14 @@ As a result, I'd like Spark to remain a single language with only a few
 implementations, possibly only one for each target virtual machine (e.g:
 Parrotcode, the JVM, or the .NET CLR, or a C-based interpreter). Spark will
 be defined and compatible even in its internals, its foreign function
-interface, and "standard library" (which will also have something more 
+interface, and "standard library" (which will also have something more
 like CPAN is for Perl 5, where every J. Random Hacker can upload their
 own INI parser, under a different namespace), and core functionality.
 
-Spark will have an open-source source code (GPL-compatible BSD-style or 
-possibly partially Artistic 2.0 in case some of the code is derived from 
+Spark will have an open-source source code (GPL-compatible BSD-style or
+possibly partially Artistic 2.0 in case some of the code is derived from
 Parrot code), which naturally can be span-off, branches, and forked. However,
-none of them pose a threat to the fact that the Spark implementation will 
+none of them pose a threat to the fact that the Spark implementation will
 remain unified. 
 
 If someone changes Spark in incompatible ways, it may either die, or forked
@@ -623,7 +624,7 @@ he speaks straight, and what he says here seems to make a lot of sense).
 Spark hopefully won't be as complex as C++ is today from the beginning,
 but will also be more complex than Scheme to allow for better expression
 and faster development. It also doesn't aim to be an incremental improvement
-over Scheme (and Common Lisp) which seems to be the case for Arc
+over Scheme (or Common Lisp) which seems to be the case for Arc
 and Clojure, but rather something like Perl 5 was to Perl 4 or Perl 6 is
 to Perl 5 : a paradigm shift, which Lispers and non-Lispers alike will
 appreciate. 
@@ -634,25 +635,25 @@ The first version of Spark will not be the ultimate Lisp
 Some features of Common Lisp or other Lisps will be absent in Spark, some 
 things will be harder to do than Common Lisp or even other Lisps or other
 non-Lisp programming languages, and some things will not work as expected
-at first (bugs, etc.). A lot of it will be caused due to the fact that the 
+at first (bugs, etc.). A lot of it will be caused due to the fact that the
 primary author of this document does not consider himself a Scheme expert
-(and is very far from being a Common Lisp expert) and just likes Lisp and
+(and is very far from being a Common Lisp expert) and just likes Lisp,
 Perl 5 and other languages enough to want to promote them. 
 
 As a result, some estoric features of the popular Lisp languages today or
 some languages that he has not fully investigated yet, won't be available
 at first. This is expected given his ignorance, enthusiasm and anxiety
-to get something out of the door first. 
+to get something out of the door first.
 
 While he would still be interested in learning about whatever core library or 
-meta-programmatic features other languages have that may prove useful for 
+meta-programmatic features other languages have that may prove useful for
 the core Spark language (or alternatively cool APIs that you think should
 be ported to Spark). But he has little patience to learn entire languages
 "fully" (if learning any non-trivial language fully is indeed possible)
 before starting to work on Spark. And often ignorance is a virtue.
 
 So the first versions of Spark will still have some room for improvement.
-Most of it may hopefully be solvable using some meta-syntactic or 
+Most of it may hopefully be solvable using some meta-syntactic or
 meta-programming user-land libraries (as is often the case for Lisps and
 other dynamic languages). As for the rest, we could consider them bad design
 decisions that still add to the language's colour and make it a bit more
@@ -785,3 +786,6 @@ and is available under the
 http://creativecommons.org/licenses/by/3.0/[Creative Commons Attribution
 3.0 Licence], or at your option any later version of it.
 
+In addition, any code excerpts, unless derived from other sources are made
+available under the 
+http://www.opensource.org/licenses/mit-license.php[MIT/X11 License] .

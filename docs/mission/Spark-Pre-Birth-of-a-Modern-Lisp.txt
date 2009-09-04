@@ -150,7 +150,7 @@ and this is what made it popular.
 
 We need to find some good reasons for people to become hooked on Spark. 
 Spark probably won't be perfect because I am not perfect and don't know all
-their is to know about language design. However, neither are
+there is to know about language design. However, neither are
 Scheme and Common Lisp. But even if Spark doesn't have so many quirks like 
 PHP or Perl (or even Python) it should be an attractive platform for people
 to experiment with, write scripts in daily, write toy programs and serious

@@ -69,8 +69,9 @@ ANSI C, which just passes controls to the various compilation stages. When
 we type +gcc+ at the command line, we are running this script that does the
 hard work of doing the compilation for us. (+/usr/bin/gcc+ should not be
 confused with GCC, the GNU Compiler Collection which is a compilation
-framework for C, C++ and other languages, and is a crucial piece of the
-open-source UNIX-like operating systems infrastructure).
+framework for C, C++ and other languages; is a crucial piece of the
+infrastructure of open-source UNIX-like operating systems, and is certainly
+not a script).
 
 For an "in your face" anti-thesis to the aversion to call languages scripting
 languages see Larry Wall's "Progrmaming is Hard. Let's Go Scripting":

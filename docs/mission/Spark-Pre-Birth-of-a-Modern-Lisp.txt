@@ -659,6 +659,52 @@ decisions that still add to the language's colour and make it a bit more
 interesting to program in than a 100% perfect language. Sometimes perfection
 is in imperfection.
 
+Why Lisp Has Been Unpopular
+---------------------------
+
+Mark Jason Dominus gives 
+http://perl.plover.com/yak/12views/samples/notes.html#sl-39[a case study called "Why Lisp Will Never Win"] 
+in his "Twelve Views of Mark Jason Dominus". He gives the following awk 
+one-liner:
+
+------------------
+awk 'BEGIN {FS=":"}; $6=="/sbin/nologin" {print $1}' /etc/passwd
+------------------
+
+Which a member of comp.lang.lisp suggested that Lisp should implement
+something similar to. The response was that "with only a couple of new utility 
+macros & functions", it could become:
+
+----------------------
+(with-lines-from-file (line "/etc/passwd")
+    (let ((fields (string-split line :fs #\:)))
+        (when (string= (aref fields 5) "/sbin/nologin")
+            (format t "~A~%" (aref fields 0))))))
+----------------------
+
+Which as Dominus notes is a little over 2.5 over the length of the awk program.
+(but still required these macros). Naturally noone will opt to write it 
+instead. So the problems with Common Lisp is ground-up verbosity, lack of 
+common idioms for commonly performed tasks, and lack of motivation to use
+it for common, everyday (sometimes even throwaway code).
+
+So what will it look like in Spark?
+
+-----------------------
+spark -inaF/:/ '(if (= (^F 5) "/sbin/login") (say (^F 0)))' /etc/passwd
+-----------------------
+
+(we borrowed the +(array idx)+ notation from Arc, because an array ref object
+is overloaded with a method to get the index.
+
+One can find other resources about what makes a language popular here:
+
+1. http://www.paulgraham.com/popular.html - "Being Popular"
+
+2. http://www.paulgraham.com/power.html - "Succinctness is Power"
+
+
+
 Some Implementation Details
 ---------------------------
 

@@ -2,3 +2,5 @@
 ^.*~
 Spark-Pre-Birth-of-a-Modern-Lisp.html
 ^docs/mission/Spark-Pre-Birth-of-a-Modern-Lisp\.(fo|pdf|xml)$
+^parspark/(Makefile|spark(|\.(c|o|pbc)))$
+^parspark/src/\w+\.pir

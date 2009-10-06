@@ -696,15 +696,14 @@ So what will it look like in Spark?
 spark -inaF/:/ '(if (= (^F 5) "/sbin/login") (say (^F 0)))' /etc/passwd
 -----------------------
 
-(we borrowed the +(array idx)+ notation from Arc, because an array ref object
-is overloaded with a method to get the index.
+(we borrowed the +(array idx)+ notation from Arc, because an array ref
+object's +(apply)+ method is overloaded with a method to get the index.)
 
 One can find other resources about what makes a language popular here:
 
 1. http://www.paulgraham.com/popular.html - "Being Popular"
 
 2. http://www.paulgraham.com/power.html - "Succinctness is Power"
-
 
 
 Some Implementation Details

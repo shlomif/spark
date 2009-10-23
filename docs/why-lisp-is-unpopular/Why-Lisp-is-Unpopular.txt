@@ -1,5 +1,5 @@
-park - Pre-Birth of a Modern Lisp
-==================================
+Why we think Lisp was not very popular
+======================================
 Author: Shlomi Fish
 Email: shlomif@iglu.org.il
 
@@ -56,3 +56,28 @@ yet so he doesn't know it too well.
 * You don't see Perl 5, Python or Ruby people writing their own implementation
 for enlightenment. 
 
+* Multiple competing implementations fragment the brain-share of the language,
+mandate that low-level code be written in a different subroutine API, create
+implementation-specific extensions (with incompatible APIs) and convert Scheme
+(or Common Lisp) into what a correspondent said was a "family of languages" 
+instead of one unified language like Perl 5, Python, Ruby or PHP are.
+
+Over verbosity
+--------------
+
+* Common Lisp and Scheme tend to be relatively verbose in comparison to
+
+
+Unusuble Core Language
+----------------------
+
+* Expecting the programmer to write many abstractions on his own and create
+his own language above CL or Scheme, instead of using the language directly.
+
+* Good support for Meta-programming is not a bad idea, but the core language
+must be usable right away.
+
+* "I think that ordinary people dislike abstraction." -- Larry Wall.
+http://www.perl.org.il/presentations/larry-wall-present-continuous-future-perfect/transcript.html[Source: "Present Continuous, Future Perfect"]
+
+* Cite the MJD comp.lang.lisp thing about awk vs. Scheme/CL.

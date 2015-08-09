@@ -11,7 +11,7 @@ TODO : Fill in.
 No good handling of text and "octet streams"
 --------------------------------------------
 
-* UNIX/C/TCP/IP's managing of octet streams and sequences vs. Lisp's object 
+* UNIX/C/TCP/IP's managing of octet streams and sequences vs. Lisp's object
 handling (not necessarily in the OOP sense).
 
 * A good language should have support for both - Perl starting from 5,
@@ -21,11 +21,11 @@ Python, Ruby.
 
 * No regexes (can be implemented but non-standard).
 
-* People keep telling me to use Domain Specific languages (DSLs) to build a 
-syntax methodically instead of agreeing that a templating system is a good 
+* People keep telling me to use Domain Specific languages (DSLs) to build a
+syntax methodically instead of agreeing that a templating system is a good
 idea. ("Less is more" as opposed to TIMTOWTDI).
 
-** Don't output SQL directly - use a DSL - no support for something like 
+** Don't output SQL directly - use a DSL - no support for something like
 $dbh->quote() or placeholders in CLSQL.
 
 * No support for interpolation.
@@ -35,9 +35,9 @@ $dbh->quote() or placeholders in CLSQL.
 * You need to write a DSL instead of just outputting the text the way
 you want and getting on with the rest of your life.
 
-* Conclusion: good text support is needed, if you want to attract 
-Perl 5 / Python / Ruby / JS / whatever hackers. 
-** And there are likely very few programmer-wannabes who will be influenced by 
+* Conclusion: good text support is needed, if you want to attract
+Perl 5 / Python / Ruby / JS / whatever hackers.
+** And there are likely very few programmer-wannabes who will be influenced by
 people who are not their elders or their superiors, so it's a vicious cycle.
 
 Competing implementations
@@ -54,12 +54,12 @@ yet so he doesn't know it too well.
 * Probably a symptom of a language being too simple and minimalistic.
 
 * You don't see Perl 5, Python or Ruby people writing their own implementation
-for enlightenment. 
+for enlightenment.
 
 * Multiple competing implementations fragment the brain-share of the language,
 mandate that low-level code be written in a different subroutine API, create
 implementation-specific extensions (with incompatible APIs) and convert Scheme
-(or Common Lisp) into what a correspondent said was a "family of languages" 
+(or Common Lisp) into what a correspondent said was a "family of languages"
 instead of one unified language like Perl 5, Python, Ruby or PHP are.
 
 Over verbosity

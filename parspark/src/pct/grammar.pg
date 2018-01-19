@@ -1,0 +1,160 @@
+# $Id$
+
+=begin overview
+
+This is the grammar for Spark written as a sequence of Perl 6 rules.
+
+=end overview
+
+grammar Spark::Grammar is PCT::Grammar;
+
+rule TOP {
+    {*}                                          #= begin
+    <statement>*
+    [ $ || <panic: 'Syntax error'> ]
+    {*}                                          #= end
+}
+
+##  this <ws> rule treats # as "comment to eol"
+token ws {
+    <!ww>
+    [ ';' \N* \n? | \s+ ]*
+}
+
+rule statement {
+    '('
+    [
+        | <special> {*}                          #= special
+        | <simple> {*}                           #= simple
+    ]
+    ')'
+}
+
+token special {
+    | <if> {*}                                   #= if
+    | <my> {*}                                   #= my
+    | <set> {*}                                  #= set
+    | <our> {*}                                  #= our
+    | <let> {*}                                  #= let
+    | <lambda> {*}                               #= lambda
+    | <library> {*}                              #= library
+    | <export> {*}                               #= export
+    | <import> {*}                               #= import
+    | <hllimport> {*}                            #= hllimport
+}
+
+rule if {
+    'if'
+    <cond=term>
+    <iftrue=term>
+    <iffalse=term>
+    {*}
+}
+
+rule my {
+    'my'
+    [<ident> ]+
+    {*}
+}
+
+rule set {
+    ':='
+    <var=symbol>
+    <val=term>
+    {*}
+}
+
+rule our {
+    'our'
+    [<ident> ]+
+    {*}
+}
+
+rule let {
+    'let'
+    '('
+    [
+        '('
+        <var=symbol>
+        <val=term>
+        ')'
+    ]+
+    ')' {*}                                      #= begin
+    <statement>+
+    {*}                                          #= end
+}
+
+rule lambda {
+    'lambda'
+    '('
+    [
+        <var=symbol>
+    ]*
+    ')' {*}                                      #= begin
+    <statement>+
+    {*}                                          #= end
+}
+
+rule library {
+    'library'
+    '('
+    [<ns=ident> ]+
+    ')' {*}                                      #= begin
+    <statement>+
+    {*}                                          #= end
+}
+
+rule export {
+    'export'
+    <sym=ident>
+    {*}
+}
+
+rule import {
+    'import'
+    $<libs>=('('
+    [<ns=ident> ]+
+    ')' )+
+    {*}
+}
+
+rule hllimport {
+    'hllimport'
+    $<libs>=('('
+    <hll=ident> [<ns=ident> ]+
+    ')' )+
+    {*}
+}
+
+rule simple {
+    <cmd=term>
+    [<term> ]*
+    {*}
+}
+
+rule value {
+    | <integer> {*}                              #= integer
+    | <quote> {*}                                #= quote
+}
+
+token integer { \d+ {*} }
+
+token quote {
+    [ \' <string_literal: '\'' > \' | \" <string_literal: '"' > \" ]
+    {*}
+}
+
+##  terms
+token term {
+    | <value> {*}                                #= value
+    | <symbol> {*}                               #= symbol
+    | <statement> {*}                            #= statement
+}
+
+token symbol {
+    <symbol=ident> {*}
+}
+
+token ident {
+    [<!before <[()]>> \S]+
+}
